@@ -1,0 +1,25 @@
+namespace org.accord_voting.entity
+
+// Will entities also have to include V/D Protocols so they can invoke each other (e.g. decision requires another vote so has to create noew initilizer). This would also mean that protocols can cast votes themselves - so "proxies" could be decisions created by other elections.
+
+enum EntityType {
+  o Person
+  o Organization
+  o InitiatingProtocol
+  o VotingProtocol
+  o DecisionProtocol
+}
+
+// using org.accordproject.base.thing as place holder
+abstract participant Entity {
+  o String identifier
+  o String alternateName optional
+  o String description optional
+  o String disambiguatingDescription optional
+  o String image optional
+  o String name optional
+  o String url optional
+  o String sameAs optional
+  o EntityType entityType optional  
+}
+

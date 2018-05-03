@@ -1,0 +1,13 @@
+namespace org.accord_voting.decision
+
+import org.accord_voting.protocol.* from github://kibagateaux/accord_voting/models/master/protocol.cto
+
+asset Decision identified by identifier {
+  // what is a decision's job, function, place in the system, how will it be used?
+  o String identifier
+  o String election optional
+  o String decisionValue
+  --> InititiatingProtocol inititiatingProtocol // protocol used to start election
+  --> VotingProtocol votingProtocol // protocol used to generate decision
+  --> DecisionProtocol decisionProtocol // protocol used to handle decision
+}

@@ -1,0 +1,207 @@
+================================================================================
+==== Node Report ===============================================================
+
+Event: exception, location: "OnUncaughtException"
+Filename: node-report.20180424.093455.13421.001.txt
+Dump event time:  2018/04/24 09:34:55
+Module load time: 2018/04/24 09:34:55
+Process ID: 13421
+Command line: node /usr/local/bin/composer archive list -a basic-sample.bna
+
+Node.js version: v9.5.0
+(http_parser: 2.7.0, v8: 6.2.414.46-node.18, uv: 1.19.1, zlib: 1.2.11,
+ ares: 1.13.0, modules: 59, nghttp2: 1.29.0, napi: 2, openssl: 1.0.2n, icu: 60.2,
+ unicode: 10.0, cldr: 32.0.1, tz: 2017c)
+
+node-report version: 2.2.1 (built against Node.js v9.5.0, 64 bit)
+
+OS version: Darwin 16.7.0 Darwin Kernel Version 16.7.0: Thu Jun 15 17:36:27 PDT 2017; root:xnu-3789.70.16~2/RELEASE_X86_64
+
+Machine: kibas-MacBook-Pro.local x86_64
+
+================================================================================
+==== JavaScript Stack Trace ====================================================
+
+Object.parseArgs [as _parseArgs] (/usr/local/lib/node_modules/composer-cli/node_modules/yargs/yargs.js:1:1)
+Object.get [as argv] (/usr/local/lib/node_modules/composer-cli/node_modules/yargs/yargs.js:1:1)
+Object.<anonymous> (/usr/local/lib/node_modules/composer-cli/cli.js:1:1)
+Module._compile (module.js:1:1)
+Object.Module._extensions..js (module.js:1:1)
+Module.load (module.js:1:1)
+tryModuleLoad (module.js:1:1)
+Function.Module._load (module.js:1:1)
+Function.Module.runMain (module.js:1:1)
+startup (bootstrap_node.js:1:1)
+bootstrap_node.js:1:1
+
+================================================================================
+==== Native Stack Trace ========================================================
+
+ 0: [pc=0x103faa2d5] nodereport::OnUncaughtException(v8::Isolate*) [/usr/local/lib/node_modules/composer-cli/node_modules/node-report/api.node]
+ 1: [pc=0x100466367] v8::internal::Isolate::Throw(v8::internal::Object*, v8::internal::MessageLocation*) [/usr/local/bin/node]
+ 2: [pc=0x1005a5331] v8::internal::Runtime_Throw(int, v8::internal::Object**, v8::internal::Isolate*) [/usr/local/bin/node]
+ 3: [pc=0x1ebd49b042fd] 
+
+================================================================================
+==== JavaScript Heap and Garbage Collector =====================================
+
+Heap space name: new_space
+    Memory size: 16,777,216 bytes, committed memory: 16,705,528 bytes
+    Capacity: 8,249,344 bytes, used: 3,661,368 bytes, available: 4,587,976 bytes
+Heap space name: old_space
+    Memory size: 16,052,224 bytes, committed memory: 15,680,888 bytes
+    Capacity: 15,730,728 bytes, used: 15,409,944 bytes, available: 320,784 bytes
+Heap space name: code_space
+    Memory size: 2,097,152 bytes, committed memory: 1,396,480 bytes
+    Capacity: 1,330,944 bytes, used: 1,330,944 bytes, available: 0 bytes
+Heap space name: map_space
+    Memory size: 1,593,344 bytes, committed memory: 1,256,520 bytes
+    Capacity: 1,540,768 bytes, used: 1,221,704 bytes, available: 319,064 bytes
+Heap space name: large_object_space
+    Memory size: 5,132,288 bytes, committed memory: 5,132,288 bytes
+    Capacity: 1,462,856,256 bytes, used: 5,053,504 bytes, available: 1,457,802,752 bytes
+
+Total heap memory size: 41,652,224 bytes
+Total heap committed memory: 40,171,704 bytes
+Total used heap memory: 26,677,464 bytes
+Total available heap memory: 1,463,030,576 bytes
+
+Heap memory limit: 1,501,560,832
+
+================================================================================
+==== Resource Usage ============================================================
+
+Process total resource usage:
+  User mode CPU: 0.511554 secs
+  Kernel mode CPU: 0.057142 secs
+  Average CPU Consumption : 56.8696%
+  Maximum resident set size: 66,194,505,728 bytes
+  Page faults: 11 (I/O required) 16160 (no I/O required)
+  Filesystem activity: 0 reads 3 writes
+
+================================================================================
+==== Node.js libuv Handle Summary ==============================================
+
+(Flags: R=Ref, A=Active)
+Flags  Type      Address             Details
+[-A]   async     0x00000001039078c0  
+[--]   check     0x00007fff5fbfea50  
+[R-]   idle      0x00007fff5fbfeac8  
+[--]   prepare   0x00007fff5fbfeb40  
+[--]   check     0x00007fff5fbfebb8  
+[-A]   async     0x0000000100ed3510  
+[-A]   async     0x0000000103918300  
+[-A]   async     0x0000000103c01020  
+[R-]   timer     0x0000000103b018a0  repeat: 0, timeout expired: 248527556 ms ago
+[R-]   tty       0x0000000103917fb8  width: 176, height: 17, file descriptor: 10, write queue size: 0, writable
+[-A]   signal    0x0000000103918160  signum: 28 (SIGWINCH)
+[R-]   tty       0x0000000103917338  width: 176, height: 17, file descriptor: 12, write queue size: 0, writable
+[-A]   async     0x0000000103c014c0  
+[-A]   async     0x0000000103c01440  
+[-A]   async     0x0000000103c00000  
+[-A]   async     0x0000000103c00e90  
+[-A]   async     0x0000000103c038c0  
+[-A]   async     0x0000000103b1dc20  
+[-A]   async     0x0000000103b01440  
+[-A]   async     0x0000000103c02bf0  
+[-A]   async     0x0000000103fb1f78  
+[-A]   async     0x0000000103c03650  
+
+================================================================================
+==== System Information ========================================================
+
+Environment variables
+  VSCODE_CLI=1
+  TERM_PROGRAM=vscode
+  ANDROID_HOME=/Users/kiba/Library/Android/sdk
+  TERM=xterm-256color
+  SHELL=/bin/bash
+  VSCODE_NODE_CACHED_DATA_DIR_6257=/Users/kiba/Library/Application Support/Code/CachedData/3aeede733d9a3098f7b4bdc1f66b63b0f48c1ef9
+  TMPDIR=/var/folders/ly/0lywf58938nbbvx30cr8gy2r0000gn/T/
+  Apple_PubSub_Socket_Render=/private/tmp/com.apple.launchd.mZ8cCqueSC/Render
+  TERM_PROGRAM_VERSION=1.22.2
+  USER=kiba
+  COMMAND_MODE=unix2003
+  SSH_AUTH_SOCK=/private/tmp/com.apple.launchd.9qFRT6UzZt/Listeners
+  __CF_USER_TEXT_ENCODING=0x1F5:0x0:0x0
+  PATH=/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/Users/kiba/Library/Android/sdk/platform-tools/:/Users/kiba/Library/Android/sdk/platform-tools/:/Users/kiba/Library/Android/sdk/platform-tools/
+  PWD=/Users/kiba/code/bc/accord_voting
+  ELECTRON_NO_ATTACH_CONSOLE=1
+  JAVA_HOME=/Library/Java/Home
+  LANG=en_US.UTF-8
+  XPC_FLAGS=0x0
+  PS1=(\u) \w | => 
+  HOST_IP=10.0.1.6
+  XPC_SERVICE_NAME=0
+  SHLVL=2
+  HOME=/Users/kiba
+  VSCODE_NLS_CONFIG={"locale":"en-us","availableLanguages":{}}
+  LOGNAME=kiba
+  VSCODE_NODE_CACHED_DATA_DIR_10354=/Users/kiba/Library/Application Support/Code/CachedData/3aeede733d9a3098f7b4bdc1f66b63b0f48c1ef9
+  VSCODE_IPC_HOOK=/Users/kiba/Library/Application Support/Code/1.22.2-main.sock
+  VSCODE_PID=6257
+  _=/usr/local/bin/composer
+  OLDPWD=/Users/kiba/code/bc
+
+Resource limits                        soft limit      hard limit
+  core file size (blocks)                       0       unlimited
+  data seg size (kbytes)                unlimited       unlimited
+  file size (blocks)                    unlimited       unlimited
+  max locked memory (bytes)             unlimited       unlimited
+  max memory size (kbytes)              unlimited       unlimited
+  open files                                10240       unlimited
+  stack size (bytes)                      8388608        67104768
+  cpu time (seconds)                    unlimited       unlimited
+  max user processes                          709            1064
+  virtual memory (kbytes)               unlimited       unlimited
+
+Loaded libraries
+  /usr/local/bin/node
+  /usr/local/opt/icu4c/lib/libicui18n.60.dylib
+  /usr/local/opt/icu4c/lib/libicuuc.60.dylib
+  /usr/local/opt/icu4c/lib/libicudata.60.2.dylib
+  /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+  /usr/lib/libSystem.B.dylib
+  /usr/lib/libc++.1.dylib
+  /usr/lib/system/libcache.dylib
+  /usr/lib/system/libcommonCrypto.dylib
+  /usr/lib/system/libcompiler_rt.dylib
+  /usr/lib/system/libcopyfile.dylib
+  /usr/lib/system/libcorecrypto.dylib
+  /usr/lib/system/libdispatch.dylib
+  /usr/lib/system/libdyld.dylib
+  /usr/lib/system/libkeymgr.dylib
+  /usr/lib/system/liblaunch.dylib
+  /usr/lib/system/libmacho.dylib
+  /usr/lib/system/libquarantine.dylib
+  /usr/lib/system/libremovefile.dylib
+  /usr/lib/system/libsystem_asl.dylib
+  /usr/lib/system/libsystem_blocks.dylib
+  /usr/lib/system/libsystem_c.dylib
+  /usr/lib/system/libsystem_configuration.dylib
+  /usr/lib/system/libsystem_coreservices.dylib
+  /usr/lib/system/libsystem_coretls.dylib
+  /usr/lib/system/libsystem_dnssd.dylib
+  /usr/lib/system/libsystem_info.dylib
+  /usr/lib/system/libsystem_kernel.dylib
+  /usr/lib/system/libsystem_m.dylib
+  /usr/lib/system/libsystem_malloc.dylib
+  /usr/lib/system/libsystem_network.dylib
+  /usr/lib/system/libsystem_networkextension.dylib
+  /usr/lib/system/libsystem_notify.dylib
+  /usr/lib/system/libsystem_platform.dylib
+  /usr/lib/system/libsystem_pthread.dylib
+  /usr/lib/system/libsystem_sandbox.dylib
+  /usr/lib/system/libsystem_secinit.dylib
+  /usr/lib/system/libsystem_symptoms.dylib
+  /usr/lib/system/libsystem_trace.dylib
+  /usr/lib/system/libunwind.dylib
+  /usr/lib/system/libxpc.dylib
+  /usr/lib/libobjc.A.dylib
+  /usr/lib/libc++abi.dylib
+  /usr/lib/libDiagnosticMessagesClient.dylib
+  /usr/lib/libicucore.A.dylib
+  /usr/lib/libz.1.dylib
+  /usr/local/lib/node_modules/composer-cli/node_modules/node-report/api.node
+
+================================================================================

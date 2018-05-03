@@ -1,0 +1,35 @@
+namespace org.accord_voting.protocol
+
+// import Entity from 
+import org.accord_voting.entity.Entity from github://kibagateaux/accord_voting/models/master/entity.cto
+
+abstract concept Protocol  {
+  // o EntityType ownerType
+  // o String entityID
+}
+
+
+// Purpose: set all of the meta data and parameters for election (participants, all protocols used, time duration, options on the ballot)
+asset InitializingProtocol identified by identifier {
+  // what is it's job, function, place in the system, how will it be used?
+  o String identifier
+  // --> Entity owner
+}
+
+
+// Purpose: manages how voters are allocated votes, how they are counted,
+asset VotingProtocol identified by identifier {
+  // what is it's job, function, place in the system, how will it be used?
+  o String identifier
+  // --> Entity initializer // protocol used to start process and generate votes
+  // --> Entity decider  // protocol to be notified with results when VotingProtocol is terminated
+}
+
+// Purpose: takes decision output from  VPC and details next steps (initialize second round vote, collect money, change credentials for government access)
+asset DecisionProtocol identified by identifier {
+  // what is it's job, function, place in the system, how will it be used?
+  o String identifier
+  // --> Entity owner
+}
+
+
