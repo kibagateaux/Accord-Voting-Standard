@@ -1,13 +1,16 @@
+
+// import org.accord_voting.protocol.* from github://kibagateaux/accord_voting/models/master/protocol.cto
+
+
 namespace org.accord_voting.decision
 
-import org.accord_voting.protocol.* from github://kibagateaux/accord_voting/models/master/protocol.cto
+import org.accord_voting.vote.Vote from github://kibagateaux/accord_voting/models/master/vote.cto
 
 asset Decision identified by identifier {
-  // what is a decision's job, function, place in the system, how will it be used?
   o String identifier
-  o String election optional
-  o String decisionValue
-  --> InititiatingProtocol inititiatingProtocol // protocol used to start election
-  --> VotingProtocol votingProtocol // protocol used to generate decision
-  --> DecisionProtocol decisionProtocol // protocol used to handle decision
+  o String decisionResult       // what the final decision is
+  --> Vote[] votes              // votes that contributed to this decision
+  o String election optional    // explicitly define which election vote can be used in
+  o Boolean isPrivate optional
+  o Boolean isVoid optional     // whether the decision is usable in smart contracts anymore
 }

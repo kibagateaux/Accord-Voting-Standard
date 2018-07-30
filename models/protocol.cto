@@ -1,34 +1,39 @@
 namespace org.accord_voting.protocol
 
 // import Entity from 
-import org.accord_voting.entity.Entity from github://kibagateaux/accord_voting/models/master/entity.cto
+import org.accord_voting.entity.* from github://kibagateaux/accord_voting/models/master/entity.cto
 
-abstract concept Protocol  {
-  // o EntityType ownerType
-  // o String entityID
+
+// need to figure out how to make Entity and abstract
+abstract concept Protocol {
+  o String identifier
+  --> Entity owner
 }
 
 
-// Purpose: set all of the meta data and parameters for election (participants, all protocols used, time duration, options on the ballot)
-asset InitializingProtocol identified by identifier {
+// Purpose: set all of the meta data and parameters for election (participants, all protocols used, time duration, options on the ballot, how voters are allocated votes, distributes votes, regulation checks before commnecing e.g. gender balanced candidates, all candidates are qualified)
+asset InitializingProtocol identified by identifier extends Protocol {
   // what is it's job, function, place in the system, how will it be used?
   o String identifier
-  // --> Entity owner
 }
 
 
-// Purpose: manages how voters are allocated votes, how they are counted,
+// Purpose: manages how votes are counted, payed for, 
+// links to a smart conract that handles election logic and how a decision is made and any after affects. 
+// Not sure if hacing it as an asset makes sense. Would this allow multiple instances of VPC type or would there be some 
 asset VotingProtocol identified by identifier {
-  // what is it's job, function, place in the system, how will it be used?
   o String identifier
-  // --> Entity initializer // protocol used to start process and generate votes
-  // --> Entity decider  // protocol to be notified with results when VotingProtocol is terminated
+  // what is it's job, function, place in the system, how will it be used?
+  --> InitializingProtocol initializingProtocolIdentifier // protocol used to start process and generate votes
+  --> DecisionProtocol decidingProtocolIdentifier  // protocol to be notified with results when VotingProtocol is terminated
 }
 
-// Purpose: takes decision output from  VPC and details next steps (initialize second round vote, collect money, change credentials for government access)
+// Purpose: takes decision output from VPC and details next steps (initialize second round vote, collect money, change credentials for government access)
 asset DecisionProtocol identified by identifier {
   // what is it's job, function, place in the system, how will it be used?
   o String identifier
+  --> InitializingProtocol initializingProtocolIdentifier // protocol used to start process and generate votes
+  --> VotingProtocol votingProtocolIdentifier  // protocol to be notified with results when VotingProtocol is terminated
   // --> Entity owner
 }
 

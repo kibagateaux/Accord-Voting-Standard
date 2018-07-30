@@ -1,36 +1,38 @@
 namespace org.accord_voting.vote
 
-import org.accordproject.organization.Organization from github://accordproject/models/master/organization.cto
+// import org.accordproject.organization.Organization from github://accordproject/models/master/organization.cto
 import org.accordproject.person.Person from github://accordproject/models/master/person.cto
-import org.accord_voting.protocol.* from github://kibagateaux/accord_voting/models/master/protocol.cto
+// import org.accord_voting.protocol.* from github://kibagateaux/accord_voting/models/master/protocol.cto
 
+// import org.accord_voting.entity.* from github://kibagateaux/accord_voting/models/master/entity.cto
 
 asset Vote identified by identifier {
   // what is a vote's job, function, place in the system, how will it be used?
   o String identifier
-  o String voteID
-  --> Person voter         // <Person> should be <Entity>. Needs to be abstract to accomodate individual voters, NGO, gov, protocols, and totalitarian facists
-  --> Person proxy optional
+  --> Entity Person         // <Person> should be <Entity>. Needs to be abstract to accomodate individual voters, NGO, gov, protocols, and totalitarian facists
+  --> Entity proxy optional
+  --> Entity processOwner optional
   o InitiatingProtocol initiatingProtocol
   o VotingProtocol votingProtocol
   o DecisionProtocol decisionProtocol // (url) explicitly define how this vote must be used
   o String election optional // explicitly define which election vote can be used in
-  o String voteValue // what the actual vote is. maybe bytes or raw data instead?
+  o String voteResult // what the actual vote is. maybe bytes or raw data instead?
   o Boolean isPrivate optional
   o Boolean isVoid
   o Boolean isUsed
 }
 
-transaction TransferVoteTransaction {
-  --> Vote vote
-  o String dispatchingEntityID
-  o String receivingEntityID
-  // what else needs to be detailed in a transition that isn't in Vote?
-}
+// transaction TransferVoteTransaction {
+//   --> Vote vote
+//   o String dispatchingEntityID
+//   o String receivingEntityID
+//   // what else needs to be detailed in a transition that isn't in Vote?
+// }
 
 // for tracing Vote ownership and information flow
 event TransferVoteEvent {
-  o String voteIdentifier
-  o String dispatchingEntityID
-  o String receivingEntityID
+  --> Vote vote
+  --> Entity voteOwner        // the original vote owner
+  --> Entity[] voteRecipients // the history of people that have owned this vote
 }
+
